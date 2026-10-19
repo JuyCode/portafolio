@@ -102,7 +102,7 @@ section{ padding: 96px 0; scroll-margin-top: var(--nav-h); position: relative; }
   display: flex; align-items: center; justify-content: space-between; gap: 24px;
 }
 .brand{ display: inline-flex; align-items: center; }
-.brand-logo{ display: block; height: 38px; width: auto; }
+.brand-logo{ display: block; height: 38px; width: auto; flex: none; }
 .navbar .brand-logo{ height: 50px; }
 
 .nav-menu{ display: flex; align-items: center; gap: 6px; }

@@ -1,0 +1,7 @@
+# Carpeta de pruebas internas (no forma parte del sitio)
+_dev/
+
+# Archivos del sistema
+Thumbs.db
+desktop.ini
+.DS_Store

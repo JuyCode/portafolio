@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Mapa del sitio (generado a mano, se actualiza si agregás páginas)
+Sitemap: https://juycode.github.io/portafolio/sitemap.xml

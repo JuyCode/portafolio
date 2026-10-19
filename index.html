@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Lumenix — Desarrollo de páginas web que convierten</title>
+  <meta name="description" content="Sistemas de turnos, cartas digitales, sistemas de gestión y tiendas online. Sitios rápidos, modernos y pensados para que tu negocio venda más.">
+  <meta name="theme-color" content="#07070d">
+  <link rel="canonical" href="https://juycode.github.io/portafolio/">
+  <meta property="og:title" content="Lumenix — Desarrollo de páginas web">
+  <meta property="og:description" content="Sistemas de turnos, cartas digitales, gestión y tiendas online. Sitios rápidos, modernos y pensados para que tu negocio venda más.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://juycode.github.io/portafolio/">
+
+  <!-- favicon (SVG con degradado) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b5cf6'/%3E%3Cstop offset='1' stop-color='%2322d3ee'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='%2307070d'/%3E%3Cpath d='M18 22h28M32 22v22' stroke='url(%23g)' stroke-width='7' stroke-linecap='round'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       SPRITE DE ICONOS (no tocar, se usan con <use href="#i-...">)
+       ============================================================ -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-layout" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></symbol>
+    <symbol id="i-building" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01M16 6h.01M8 10h.01M16 10h.01M8 14h.01M16 14h.01M12 6h.01M12 10h.01M12 14h.01"/></symbol>
+    <symbol id="i-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2 3h2l2.66 12.42a2 2 0 0 0 2 1.58h7.72a2 2 0 0 0 2-1.58L22 8H5.12"/></symbol>
+    <symbol id="i-sparkles" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 1.9 5.8L20 10l-6.1 1.2L12 17l-1.9-5.8L4 10l6.1-1.2Z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8Z"/></symbol>
+    <symbol id="i-gauge" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1Z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01Z"/></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></symbol>
+    <symbol id="i-zap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></symbol>
+  </svg>
+
+  <!-- Fondo decorativo -->
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="orb orb-1" aria-hidden="true"></div>
+  <div class="orb orb-2" aria-hidden="true"></div>
+  <div class="orb orb-3" aria-hidden="true"></div>
+
+  <!-- ============================================================
+       NAVEGACIÓN
+       ============================================================ -->
+  <header class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#inicio" class="brand">
+        <span class="brand-name" data-config="brand">Lumenix</span>
+      </a>
+
+      <nav class="nav-menu" id="navMenu" aria-label="Menú principal">
+        <a href="#servicios" class="nav-link">Servicios</a>
+        <a href="#proyectos" class="nav-link">Proyectos</a>
+        <a href="#contacto" class="nav-link">Contacto</a>
+        <a href="#contacto" class="btn btn-primary btn-sm nav-cta">Hablemos <svg class="ico"><use href="#i-arrow"/></svg></a>
+      </nav>
+
+      <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============================================================
+         HERO
+         ============================================================ -->
+    <section id="inicio" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <h1 class="reveal">Tu negocio merece una web que <span class="grad-text">trabaje por vos</span>.</h1>
+
+          <p class="hero-sub reveal">Diseño y desarrollo páginas web rápidas, modernas y pensadas para convertir visitantes en clientes. Sin plantillas genéricas, sin misterios.</p>
+
+          <p class="hero-typing reveal">Me especializo en <span id="typed">landing pages</span><span class="cursor" aria-hidden="true">|</span></p>
+
+          <div class="hero-cta reveal">
+            <a href="#proyectos" class="btn btn-primary">Ver mis proyectos <svg class="ico"><use href="#i-arrow"/></svg></a>
+            <a href="#contacto" class="btn btn-ghost">Pedir presupuesto</a>
+          </div>
+
+
+        </div>
+
+        <!-- Preview tipo navegador -->
+        <div class="hero-visual reveal" aria-hidden="true">
+          <div class="browser">
+            <div class="browser-bar">
+              <i></i><i></i><i></i>
+              <span class="browser-url">https://juycode.github.io/portafolio</span>
+            </div>
+            <div class="browser-body">
+              <div class="mini-nav"><span class="mini-logo"></span><span class="mini-links"><i></i><i></i><i></i></span></div>
+              <div class="mini-hero">
+                <span class="mini-line w60 big"></span>
+                <span class="mini-line w85"></span>
+                <span class="mini-line w45"></span>
+                <span class="mini-btn"></span>
+              </div>
+              <div class="mini-cards"><i></i><i></i><i></i></div>
+            </div>
+          </div>
+
+          <div class="float-card fc-1">
+            <span class="fc-ico"><svg class="ico"><use href="#i-zap"/></svg></span>
+            <span><strong>100/100</strong> Lighthouse</span>
+          </div>
+          <div class="float-card fc-2">
+            <span class="fc-ico"><svg class="ico"><use href="#i-check"/></svg></span>
+            <span><strong>100%</strong> Responsive</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SERVICIOS
+         ============================================================ -->
+    <section id="servicios">
+      <div class="container">
+        <div class="sec-head reveal">
+          <span class="eyebrow">Servicios</span>
+          <h2>Todo lo que tu negocio <span class="grad-text">necesita online</span></h2>
+          <p>Desde la primera idea hasta el lanzamiento. Elegí lo que necesitás o armemos un plan a medida.</p>
+        </div>
+
+        <div class="grid grid-3">
+          <article class="card service reveal">
+            <span class="svc-ico"><svg class="ico"><use href="#i-clock"/></svg></span>
+            <h3>Sistemas de Turnos</h3>
+            <p>Tus clientes reservan solos desde el celular: eligen servicio, profesional, día y horario. Vos ves la agenda ordenada desde un panel.</p>
+          </article>
+
+          <article class="card service reveal">
+            <span class="svc-ico"><svg class="ico"><use href="#i-layout"/></svg></span>
+            <h3>Cartas y Menús Digitales</h3>
+            <p>Tu carta siempre al día y sin reimprimir: se abre con un QR, con fotos, precios y categorías. Cambiás algo y se actualiza al instante.</p>
+          </article>
+
+          <article class="card service reveal">
+            <span class="svc-ico"><svg class="ico"><use href="#i-gauge"/></svg></span>
+            <h3>Sistemas de Gestión</h3>
+            <p>Stock, ventas, gastos y clientes en un solo panel, con reportes y respaldo en Excel. Ideal si hoy lo llevás en cuaderno o planilla.</p>
+          </article>
+
+          <article class="card service reveal">
+            <span class="svc-ico"><svg class="ico"><use href="#i-cart"/></svg></span>
+            <h3>Tiendas Online</h3>
+            <p>Catálogo, carrito y pedidos que quedan guardados. Tus clientes compran a cualquier hora y vos no perdés ninguna venta.</p>
+          </article>
+
+          <article class="card service reveal">
+            <span class="svc-ico"><svg class="ico"><use href="#i-zap"/></svg></span>
+            <h3>Landing Pages y Velocidad</h3>
+            <p>Páginas de una sola acción, rápidas y optimizadas para Google. Pensadas para que el visitante te escriba, no para que se pierda.</p>
+          </article>
+
+          <article class="card service reveal">
+            <span class="svc-ico"><svg class="ico"><use href="#i-shield"/></svg></span>
+            <h3>Mantenimiento y Soporte</h3>
+            <p>Cambios, copias de seguridad y actualizaciones. Tu sitio siempre al día, andando y sin sorpresas.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PROYECTOS
+         ============================================================ -->
+    <section id="proyectos">
+      <div class="container">
+        <div class="sec-head reveal">
+          <span class="eyebrow">Portafolio</span>
+          <h2>Proyectos que hablan <span class="grad-text">por sí solos</span></h2>
+          <p>Hacé clic en cualquier tarjeta para ver el detalle y probarlo en vivo: son proyectos que funcionan de verdad.</p>
+        </div>
+
+        <div class="filters reveal" id="projectFilters" role="group" aria-label="Filtrar proyectos">
+          <!-- Los botones se generan solos desde las categorías de la lista PROJECTS -->
+        </div>
+
+        <div class="grid grid-3" id="projectGrid">
+
+          <!-- Las tarjetas se generan solas desde la lista PROJECTS de js/main.js -->
+        </div>
+      </div>
+    </section>
+
+
+
+
+    <!-- ============================================================
+         CONTACTO
+         ============================================================ -->
+    <section id="contacto">
+      <div class="container contact-grid">
+        <div class="contact-info">
+          <span class="eyebrow reveal">Contacto</span>
+          <h2 class="reveal">¿Tenés un proyecto en mente? <span class="grad-text">Contame.</span></h2>
+          <p class="reveal">Completá el formulario y te respondo en menos de 24 horas con una propuesta clara y sin compromiso.</p>
+
+          <ul class="contact-list reveal">
+            <li>
+              <span class="contact-ico"><svg class="ico"><use href="#i-mail"/></svg></span>
+              <span><small>Email</small><a href="mailto:luchocatorcino60@gmail.com" data-config="email-link"><span data-config="email">luchocatorcino60@gmail.com</span></a></span>
+            </li>
+            <li>
+              <span class="contact-ico"><svg class="ico"><use href="#i-chat"/></svg></span>
+              <span><small>WhatsApp</small><a href="https://wa.me/5493884418917" target="_blank" rel="noopener" data-config="whatsapp-link"><span data-config="whatsapp">+54 9 388 441-8917</span></a></span>
+            </li>
+          </ul>
+
+          <div class="socials reveal">
+            <a href="https://github.com/juycode" target="_blank" rel="noopener" data-config="github">GitHub ↗</a>
+          </div>
+        </div>
+
+        <form class="card contact-form reveal" id="contactForm" novalidate>
+          <div class="form-row">
+            <label class="field">
+              <span>Nombre *</span>
+              <input type="text" name="nombre" placeholder="Tu nombre" required>
+            </label>
+            <label class="field">
+              <span>Email *</span>
+              <input type="email" name="email" placeholder="tucorreo@ejemplo.com" required>
+            </label>
+          </div>
+
+          <div class="form-row">
+            <label class="field">
+              <span>WhatsApp (opcional)</span>
+              <input type="tel" name="whatsapp" placeholder="+54 9 11 0000-0000">
+            </label>
+            <label class="field">
+              <span>Tipo de proyecto *</span>
+              <select name="tipo" id="serviceSelect" required>
+                <option value="">Elegí una opción</option>
+                <option>Sistema de turnos</option>
+                <option>Carta o menú digital</option>
+                <option>Sistema de gestión</option>
+                <option>Tienda online</option>
+                <option>Landing page</option>
+                <option>Mantenimiento</option>
+                <option>Otro</option>
+              </select>
+            </label>
+          </div>
+
+          <label class="field">
+            <span>Presupuesto estimado</span>
+            <select name="presupuesto">
+              <option value="">Aún no lo sé</option>
+              <option>Ya tengo un presupuesto en mente</option>
+              <option>Quiero que me recomiendes una opción</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Contame tu proyecto *</span>
+            <textarea name="mensaje" rows="4" placeholder="¿Qué necesitás? ¿Para qué negocio? ¿Tenés algún ejemplo que te guste?" required></textarea>
+          </label>
+
+          <button type="submit" class="btn btn-primary btn-block">Enviar mensaje <svg class="ico"><use href="#i-arrow"/></svg></button>
+          <p class="form-note">También podés escribirme directo por <a href="https://wa.me/5493884418917" target="_blank" rel="noopener" data-config="whatsapp-link">WhatsApp ↗</a></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================
+       PIE DE PÁGINA
+       ============================================================ -->
+  <footer>
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="#inicio" class="brand">
+          <span class="brand-name" data-config="brand">Lumenix</span>
+        </a>
+        <p>Diseño y desarrollo de páginas web que convierten visitantes en clientes.</p>
+      </div>
+
+      <nav class="footer-col" aria-label="Navegación del pie">
+        <h3>Navegación</h3>
+        <a href="#servicios">Servicios</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
+      <nav class="footer-col" aria-label="Contacto del pie">
+        <h3>Contacto</h3>
+        <a href="mailto:luchocatorcino60@gmail.com" data-config="email-link"><span data-config="email">luchocatorcino60@gmail.com</span></a>
+        <a href="https://wa.me/5493884418917" target="_blank" rel="noopener" data-config="whatsapp-link"><span data-config="whatsapp">+54 9 388 441-8917</span></a>
+        <a href="#contacto">Formulario de contacto</a>
+      </nav>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>© <span data-year>2026</span> <span data-config="brand">Lumenix</span>. Todos los derechos reservados.</p>
+      <p class="footer-tech">Hecho con ♥, HTML, CSS y JavaScript</p>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       MODAL DE PROYECTO
+       ============================================================ -->
+  <div class="modal" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-panel">
+      <button class="modal-close" data-close aria-label="Cerrar detalle"><span aria-hidden="true">✕</span></button>
+      <div class="modal-visual" id="modalVisual"></div>
+      <div class="modal-body">
+        <span class="project-cat" id="modalCat">Proyecto</span>
+        <h3 id="modalTitle">Proyecto</h3>
+        <p id="modalDesc"></p>
+        <div class="tags" id="modalTags"></div>
+        <div class="modal-actions">
+          <a href="#" class="btn btn-primary" id="modalVisit" target="_blank" rel="noopener">Visitar sitio <svg class="ico"><use href="#i-external"/></svg></a>
+          <button class="btn btn-ghost" data-close>Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast de notificaciones -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- Botón volver arriba -->
+  <button class="to-top" id="toTop" aria-label="Volver arriba"><svg class="ico"><use href="#i-up"/></svg></button>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

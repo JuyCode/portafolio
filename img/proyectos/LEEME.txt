@@ -1,0 +1,20 @@
+CARPETA DE CAPTURAS DE PROYECTOS
+=================================
+
+Guardá acá las imágenes de tus proyectos (JPG, PNG o WebP).
+
+Recomendaciones:
+- Ancho: 1200 px o más (se recorta a 16:10, o sea 1200 x 750 aprox).
+- Que se vea la parte de arriba de la web (el hero), que es lo más lindo.
+- Peso: menos de 300 KB por imagen, así la página carga rápido.
+- Nombre sin espacios ni acentos: gourmet.jpg, fitzone.jpg, estudio-norte.png
+
+Después, en el archivo js/main.js, buscá la lista PROJECTS
+(está arriba de todo) y en el proyecto que quieras poné:
+
+    image: "img/proyectos/gourmet.jpg"
+
+Si no ponés nada en "image", se muestra una maqueta de ejemplo gris.
+
+Tip: si tus proyectos están publicados online, también se puede sacar
+la captura automáticamente con una herramienta de screenshot.

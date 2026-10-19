@@ -12,6 +12,7 @@ const CONFIG = {
   email:     "luchocatorcino60@gmail.com",
   whatsapp:  "5493884418917",          // formato país + número, sin + ni espacios
   whatsappDisplay: "+54 9 388 441-8917",
+  whatsappMessage: "¡Hola Lucas! Vengo de tu portafolio y quiero consultar por un proyecto de web.",
   github:    "https://github.com/juycode"
 };
 
@@ -50,14 +51,14 @@ const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)
    ============================================================ */
 const PROJECTS = [
   {
-    title: "Tauro Barbería",
+    title: "Tu Barbería",
     summary: "Sistema de turnos online en 4 pasos, con panel de administración.",
     desc: "Reserva de turnos para barbería, pensada para usarse desde el celular. El cliente elige barbero, servicio, día y horario, y confirma el pago en efectivo o por Mercado Pago en pocos toques. Incluye horarios de atención, ubicación y panel de administración para que el negocio maneje sus propios turnos.",
     category: "turnos",
     cat: "Turnos online",
     tags: ["HTML", "CSS", "JavaScript"],
     url: "https://taurobarberia.netlify.app/",
-    image: "img/proyectos/tauro-barberia.jpg"
+    image: "img/proyectos/tu-barberia.jpg"
   },
   {
     title: "La Casa del Sabor",
@@ -137,14 +138,6 @@ const esc = (s) =>
     ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c])
   );
 
-function showToast(message) {
-  const toast = $("#toast");
-  toast.textContent = message;
-  toast.classList.add("show");
-  clearTimeout(showToast._t);
-  showToast._t = setTimeout(() => toast.classList.remove("show"), 4500);
-}
-
 /* ============================================================
    3) DATOS DE CONTACTO → se inyectan en [data-config]
    ============================================================ */
@@ -158,6 +151,7 @@ function bindConfig() {
     "email-link": CONFIG.email,
     whatsapp: CONFIG.whatsappDisplay,
     "whatsapp-link": waLink,
+    "whatsapp-cta-link": `${waLink}?text=${encodeURIComponent(CONFIG.whatsappMessage)}`,
     github: CONFIG.github
   };
 
@@ -468,100 +462,7 @@ function initModal() {
 }
 
 /* ============================================================
-   12) BOTONES DE PLANES → preseleccionan el tipo de proyecto
-   ============================================================ */
-function initServicePrefill() {
-  $$("[data-service]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const select = $("#serviceSelect");
-      if (select) select.value = btn.dataset.service;
-    });
-  });
-}
-
-/* ============================================================
-   13) FORMULARIO DE CONTACTO
-   ------------------------------------------------------------
-   Sin backend: al enviar se abre el correo del visitante con el
-   mensaje ya cargado. Para recibir mensajes sin depender del
-   correo del cliente, registrate gratis en formspree.io y
-   poné la URL en FORM_ENDPOINT (quitando el comentario).
-   ============================================================ */
-// const FORM_ENDPOINT = "https://formspree.io/f/TU_CODIGO"; // <- activá esto con Formspree
-
-function initForm() {
-  const form = $("#contactForm");
-  if (!form) return;
-
-  const clearErrors = () => $$(".field", form).forEach((f) => f.classList.remove("error"));
-
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    clearErrors();
-
-    // Validación
-    let valid = true;
-    $$("[required]", form).forEach((field) => {
-      const empty = !field.value.trim();
-      const badEmail = field.type === "email" && field.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value);
-      if (empty || badEmail) {
-        field.closest(".field").classList.add("error");
-        valid = false;
-      }
-    });
-
-    if (!valid) {
-      showToast("Revisá los campos marcados en rojo ✍️");
-      form.querySelector(".field.error input, .field.error select, .field.error textarea")?.focus();
-      return;
-    }
-
-    const data = Object.fromEntries(new FormData(form).entries());
-
-    /* ---------- OPCIÓN A: Formspree (recomendada) ---------- */
-    // if (FORM_ENDPOINT) {
-    //   try {
-    //     const res = await fetch(FORM_ENDPOINT, {
-    //       method: "POST",
-    //       headers: { Accept: "application/json" },
-    //       body: new FormData(form)
-    //     });
-    //     if (res.ok) {
-    //       form.reset();
-    //       showToast("¡Mensaje enviado! Te respondo en menos de 24 hs ✅");
-    //     } else {
-    //       showToast("No se pudo enviar. Escribime directo por WhatsApp 🙏");
-    //     }
-    //   } catch {
-    //     showToast("Sin conexión. Escribime por WhatsApp 🙏");
-    //   }
-    //   return;
-    // }
-
-    /* ---------- OPCIÓN B: abre el correo del visitante ---------- */
-    const body = [
-      `Nombre: ${data.nombre}`,
-      `Email: ${data.email}`,
-      `WhatsApp: ${data.whatsapp || "-"}`,
-      `Tipo de proyecto: ${data.tipo}`,
-      `Presupuesto: ${data.presupuesto || "-"}`,
-      "",
-      "Proyecto:",
-      data.mensaje
-    ].join("\n");
-
-    const mailto = `mailto:${CONFIG.email}?subject=${encodeURIComponent(
-      `Nuevo proyecto: ${data.tipo} — ${data.nombre}`
-    )}&body=${encodeURIComponent(body)}`;
-
-    window.location.href = mailto;
-    form.reset();
-    showToast("Se abrió tu correo con el mensaje listo para enviar 📩 También podés escribirme por WhatsApp.");
-  });
-}
-
-/* ============================================================
-   14) AÑO ACTUAL EN EL PIE
+   12) AÑO ACTUAL EN EL PIE
    ============================================================ */
 function initYear() {
   $$("[data-year]").forEach((el) => (el.textContent = new Date().getFullYear()));
@@ -584,6 +485,4 @@ document.addEventListener("DOMContentLoaded", () => {
   initTyping();
   initFilters();
   initModal();
-  initServicePrefill();
-  initForm();
 });

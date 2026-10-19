@@ -378,34 +378,20 @@ img.shot{
 }
 .socials a:hover{ color: var(--text); border-color: rgba(139,92,246,.6); transform: translateY(-2px); }
 
-.contact-form{ padding: 34px; }
-.form-row{ display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.field{ display: flex; flex-direction: column; gap: 7px; margin-bottom: 16px; }
-.field > span{ font-size: .82rem; font-weight: 500; color: var(--muted); }
-.field input, .field select, .field textarea{
-  /* 16px evita que iOS haga zoom al enfocar un campo */
-  width: 100%; font: inherit; font-size: 1rem; color: var(--text);
-  background: rgba(255,255,255,.04); border: 1px solid var(--border-strong);
-  border-radius: 12px; padding: 13px 16px; transition: border-color .25s, box-shadow .25s, background .25s;
+/* ---------- CTA de WhatsApp (reemplaza al formulario) ---------- */
+.wa-card{ display: flex; flex-direction: column; align-items: center; text-align: center; padding: 42px 40px; }
+.wa-bubble{
+  width: 76px; height: 76px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--grad-3); color: #08080f;
+  box-shadow: 0 18px 36px -16px rgba(139,92,246,.85);
+  margin-bottom: 22px;
 }
-.field textarea{ resize: vertical; min-height: 110px; }
-.field input::placeholder, .field textarea::placeholder{ color: #666d84; }
-.field select{
-  appearance: none; -webkit-appearance: none; cursor: pointer;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='none' stroke='%239aa1b6' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='m3 5 4 4 4-4'/%3E%3C/svg%3E");
-  background-repeat: no-repeat; background-position: right 16px center;
-  padding-right: 42px;
-}
-.field select option{ background: #12121c; color: var(--text); }
-.field input:focus, .field select:focus, .field textarea:focus{
-  outline: none; border-color: rgba(139,92,246,.75); background: rgba(255,255,255,.06);
-  box-shadow: 0 0 0 4px rgba(139,92,246,.16);
-}
-.field.error input, .field.error select, .field.error textarea{
-  border-color: #f87171; box-shadow: 0 0 0 4px rgba(248,113,113,.14);
-}
-.form-note{ font-size: .84rem; text-align: center; margin: 16px 0 0; }
-.form-note a{ color: var(--accent-2); font-weight: 600; }
+.wa-bubble .ico{ width: 40px; height: 40px; }
+.wa-card h3{ font-size: 1.55rem; letter-spacing: -.02em; }
+.wa-copy{ color: var(--muted); font-size: .97rem; line-height: 1.65; max-width: 46ch; margin: 12px auto 26px; }
+.wa-alt{ font-size: .87rem; color: var(--muted); margin: 20px 0 0; }
+.wa-alt a{ color: var(--accent-2); font-weight: 600; }
 
 /* ---------- Footer ---------- */
 footer{ border-top: 1px solid var(--border); padding: 64px 0 28px; background: rgba(255,255,255,.015); }
@@ -445,16 +431,6 @@ footer{ border-top: 1px solid var(--border); padding: 64px 0 28px; background: r
 .modal-body h3{ font-size: 1.6rem; margin: 10px 0 8px; }
 .modal-body p{ font-size: .98rem; }
 .modal-actions{ display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
-
-/* ---------- Toast ---------- */
-.toast{
-  position: fixed; left: 50%; bottom: 28px; transform: translate(-50%, 140%);
-  z-index: 300; background: rgba(16,16,26,.94); backdrop-filter: blur(12px);
-  border: 1px solid rgba(139,92,246,.55); border-radius: 14px;
-  padding: 14px 22px; font-size: .9rem; color: var(--text); max-width: min(440px, 90%);
-  box-shadow: var(--shadow-lg); transition: transform .4s cubic-bezier(.2,.8,.3,1);
-}
-.toast.show{ transform: translate(-50%, 0); }
 
 /* ---------- Volver arriba ---------- */
 .to-top{
@@ -560,10 +536,8 @@ footer{ border-top: 1px solid var(--border); padding: 64px 0 28px; background: r
   .project-visual{ padding: 16px 16px 0; }
   .project-body{ padding: 18px 18px 20px; }
 
-  /* Formulario */
-  .form-row{ grid-template-columns: 1fr; gap: 0; }
-  .contact-form{ padding: 24px 20px; }
   .card{ padding: 24px 20px; }
+  .wa-card{ padding: 32px 24px; }
   .contact-list li{ align-items: flex-start; }
 
   /* Enlaces sociales con altura táctil */
@@ -586,7 +560,6 @@ footer{ border-top: 1px solid var(--border); padding: 64px 0 28px; background: r
   .hero-visual::before{ filter: blur(45px); }
   .bg-grid{ background-size: 34px 34px; }
   .to-top{ right: 16px; bottom: calc(env(safe-area-inset-bottom, 0px) + 16px); }
-  .toast{ bottom: calc(env(safe-area-inset-bottom, 0px) + 18px); }
 }
 
 /* ---------- Celulares chicos (iPhone SE, Android compactos) ---------- */
@@ -597,7 +570,7 @@ footer{ border-top: 1px solid var(--border); padding: 64px 0 28px; background: r
   .js .hero-visual.reveal,
   .js .hero-visual.reveal.in{ width: 150%; opacity: .17; }
   .shot .mini-cards{ grid-template-columns: repeat(3, 1fr); }
-  .contact-form{ padding: 20px 16px; }
+  .wa-card{ padding: 26px 18px; }
 }
 
 /* ---------- Accesibilidad: menos movimiento ---------- */
